@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetMouseButtonDown(0))
         {
             rb.velocity = Vector2.up * velocity;
         }
@@ -26,13 +26,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Pipe" || collision.tag == "Ground")
         {
-            Debug.Log("GameOver");
             gameManager.GetComponent<GameManager>().GameOver();
         }
 
         if (collision.tag == "ScoreCollider")
         {
-            Debug.Log("ScoreCollider");
             scoreUIText.GetComponent<ScoreController>().IncreaseScore();
         }
     }
